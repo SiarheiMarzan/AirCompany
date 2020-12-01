@@ -2,7 +2,7 @@ package Planes;
 
 import models.MilitaryType;
 
-import java.util.Objects;
+import static java.util.Objects.hash;
 
 public class MilitaryPlane extends Plane {
 
@@ -14,7 +14,6 @@ public class MilitaryPlane extends Plane {
     }
 
     public MilitaryType getType() {
-
         return type;
     }
 
@@ -29,14 +28,12 @@ public class MilitaryPlane extends Plane {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof MilitaryPlane)) return false;
-        if (!super.equals(o)) return false;
         MilitaryPlane that = (MilitaryPlane) o;
-        return type == that.type;
+        return type == that.type;               // добавить поля в сравнение!!!
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(super.hashCode(), type);
+        return hash(super.hashCode(), type);
     }
 }

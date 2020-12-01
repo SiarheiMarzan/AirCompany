@@ -1,6 +1,6 @@
 package Planes;
 
-import java.util.Objects;
+import static java.util.Objects.hash;
 
 abstract public class Plane {
     String model;
@@ -19,17 +19,16 @@ abstract public class Plane {
         return model;
     }
 
-    public int getMS() {
+    public int getMaxSpeed() {
         return maxSpeed;
     }
 
-    public int Get_Max_Flight_Distance() {
+    public int getMaxFlightDistance() {
         return maxFlightDistance;
     }
 
-    public int getMinLoadCapacity() {
-        int result = this.maxLoadCapacity;
-        return result;
+    public int getMaxLoadCapacity() {
+        return maxLoadCapacity;
     }
 
     @Override
@@ -50,11 +49,11 @@ abstract public class Plane {
         return maxSpeed == plane.maxSpeed &&
                 maxFlightDistance == plane.maxFlightDistance &&
                 maxLoadCapacity == plane.maxLoadCapacity &&
-                Objects.equals(model, plane.model);
+                model.contentEquals(plane.model);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
+        return hash(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
     }
 }
